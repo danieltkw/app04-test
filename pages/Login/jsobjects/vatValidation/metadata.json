@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "66b91aa416e9244321599197_f419e3a5-8e8f-4f57-b19d-6120741b14f6",
+  "id": "Login_vatValidation",
+  "unpublishedCollection": {
+    "name": "vatValidation",
+    "pageId": "Login",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}
