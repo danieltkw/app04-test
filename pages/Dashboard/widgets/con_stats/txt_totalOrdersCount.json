@@ -40,7 +40,7 @@
     "paragraph"
   ],
   "shouldTruncate": false,
-  "text": "{{utils.dashboardMetrics.data.allOrders}}",
+  "text": "{{utils.dashboardMetrics.data?.allOrders || 0}}",
   "textAlign": "LEFT",
   "textColor": "{{appsmith.theme.colors.primaryColor}}",
   "topRow": 3,

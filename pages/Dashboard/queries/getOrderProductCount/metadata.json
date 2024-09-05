@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- getOrderProductCount - Dashboard\nSELECT \n  ol.product_variant_id, \n  COUNT(*) as variant_count, \n  pv.product_id,  \n  pv.price,\n  p.name\nFROM order_line ol \nLEFT JOIN product_variant pv ON ol.product_variant_id = pv.id\nLEFT JOIN product p ON pv.product_id = p.id\nGROUP BY ol.product_variant_id, pv.product_id, pv.price, p.name\nORDER BY variant_count DESC\nLIMIT 5;\n\n",
+      "body": "-- getOrderProductCount - Fetch top ordered products based on VAT (vat_number)\nSELECT \n  p.product_id, \n  COUNT(JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id'))) AS variant_count, \n  p.name, \n  p.price\nFROM db_orders o\nLEFT JOIN db_products p ON JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id')) = p.product_id\nINNER JOIN db_users u ON o.user_id = u.user_id\nWHERE u.vat_number = {{appsmith.store.clientId}}\nGROUP BY p.product_id, p.name, p.price\nORDER BY variant_count DESC\nLIMIT 5;\n\n\n\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,7 +22,11 @@
       "name": "appsmith_db",
       "pluginId": "mysql-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "executeOnLoad": false,
     "name": "getOrderProductCount",
     "pageId": "Dashboard",

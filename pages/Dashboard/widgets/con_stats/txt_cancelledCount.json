@@ -34,13 +34,13 @@
   "overflow": "NONE",
   "parentId": "m4pgcrl5lv",
   "renderMode": "CANVAS",
-  "rightColumn": 43,
+  "rightColumn": 41,
   "searchTags": [
     "typography",
     "paragraph"
   ],
   "shouldTruncate": false,
-  "text": "{{utils.dashboardMetrics.data.cancelledOrders}}",
+  "text": "{{utils.dashboardMetrics.data?.allOrders || 0}} \n",
   "textAlign": "LEFT",
   "textColor": "{{appsmith.theme.colors.primaryColor}}",
   "topRow": 3,

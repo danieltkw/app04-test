@@ -48,7 +48,7 @@
     "label"
   ],
   "shouldTruncate": false,
-  "text": "{{utils.dashboardMetrics.data.shippedOrders}}",
+  "text": "{{utils.dashboardMetrics.data?.shippedOrders || 0}}",
   "textAlign": "CENTER",
   "textColor": "{{appsmith.theme.colors.backgroundColor}}",
   "topRow": 20,

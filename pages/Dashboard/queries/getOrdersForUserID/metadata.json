@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "668ff84389b1a8028a70bcb5_9e1a3da1-3d77-40dd-ae6d-4f7466c92455",
-  "id": "Dashboard_getReturnsCount",
+  "gitSyncId": "66d34dc0971b12617d2a7bb0_ec741b5e-957f-46aa-a55f-dc0498a02a09",
+  "id": "Dashboard_getOrdersForUserID",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- getReturnsCount - Dashboard \nSELECT COUNT(*) FROM returns;\n",
+      "body": "-- Fetch orders for the logged-in user based on user_id (stored in appsmith.store.userID)\nSELECT * \nFROM db_orders\nWHERE user_id = {{appsmith.store.userID}};\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,9 +22,13 @@
       "name": "appsmith_db",
       "pluginId": "mysql-plugin"
     },
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "executeOnLoad": false,
-    "name": "getReturnsCount",
+    "name": "getOrdersForUserID",
     "pageId": "Dashboard",
     "userSetOnLoad": false
   }

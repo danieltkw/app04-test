@@ -1,15 +1,15 @@
--- getOrders - Dashboard
+-- Dynamic query using Appsmith's clientId (which is user_id in your case)
 SELECT 
-  `order`.*, 
-  location.address1, 
-  person.first_name, 
-  person.last_name, 
-  order_status.label AS status
-FROM `order`
-INNER JOIN location ON `order`.shipping_address = location.id
-INNER JOIN order_status ON `order`.order_status_id = order_status.id
-INNER JOIN account ON `order`.account_id = account.id
-INNER JOIN person ON account.customer_id = person.id;
+  o.*, 
+  u.user_id AS client_id,
+  o.shipping_address, 
+  o.total, 
+  o.delivery_status, 
+  o.created
+FROM db_orders o
+INNER JOIN db_users u ON o.user_id = u.user_id
+WHERE u.user_id = {{appsmith.store.clientId}};
+
 
 
 

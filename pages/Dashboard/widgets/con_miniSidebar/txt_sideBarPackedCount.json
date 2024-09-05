@@ -48,7 +48,7 @@
     "label"
   ],
   "shouldTruncate": false,
-  "text": "{{utils.dashboardMetrics.data.packedOrders}}",
+  "text": "{{utils.dashboardMetrics.data?.packedOrders || 0}}",
   "textAlign": "CENTER",
   "textColor": "{{appsmith.theme.colors.backgroundColor}}",
   "topRow": 16,

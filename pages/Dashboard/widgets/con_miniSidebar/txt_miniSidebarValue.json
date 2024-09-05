@@ -40,7 +40,7 @@
     "label"
   ],
   "shouldTruncate": false,
-  "text": "{{utils.dashboardMetrics.data.totalOrderValue}}",
+  "text": "{{utils.dashboardMetrics.data?.totalOrderValue || 0}}",
   "textAlign": "LEFT",
   "textColor": "#fafafa",
   "topRow": 0,

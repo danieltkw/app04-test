@@ -1,0 +1,4 @@
+-- Fetch orders for the logged-in user based on user_id (stored in appsmith.store.userID)
+SELECT * 
+FROM db_orders
+WHERE user_id = {{appsmith.store.userID}};

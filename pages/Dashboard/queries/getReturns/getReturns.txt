@@ -1,2 +1,6 @@
--- getReturns - Dashboard
-SELECT * FROM order_track;
+-- getReturns - Fetch orders where delivery_status is 'Returning' or 'Returned'
+SELECT * 
+FROM db_orders 
+WHERE delivery_status IN ('Returning', 'Returned') 
+AND user_id = {{appsmith.store.clientId}};
+
