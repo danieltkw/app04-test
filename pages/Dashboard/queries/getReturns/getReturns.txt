@@ -2,5 +2,8 @@
 SELECT * 
 FROM db_orders 
 WHERE delivery_status IN ('Returning', 'Returned') 
-AND user_id = {{appsmith.store.clientId}};
+AND vat_number = {{appsmith.store.clientId}};  -- Use vat_number instead of user_id
+
+
+
 

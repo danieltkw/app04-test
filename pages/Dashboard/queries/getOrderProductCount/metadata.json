@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- getOrderProductCount - Fetch top ordered products based on VAT (vat_number)\nSELECT \n  p.product_id, \n  COUNT(JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id'))) AS variant_count, \n  p.name, \n  p.price\nFROM db_orders o\nLEFT JOIN db_products p ON JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id')) = p.product_id\nINNER JOIN db_users u ON o.user_id = u.user_id\nWHERE u.vat_number = {{appsmith.store.clientId}}\nGROUP BY p.product_id, p.name, p.price\nORDER BY variant_count DESC\nLIMIT 5;\n\n\n\n",
+      "body": "-- getOrderProductCount - Fetch top ordered products based on VAT (vat_number)\nSELECT \n  p.product_id, \n  COUNT(JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id'))) AS variant_count, \n  p.name, \n  p.price\nFROM db_orders o\nLEFT JOIN db_products p \n  ON JSON_UNQUOTE(JSON_EXTRACT(o.items, '$[*].product_id')) = p.product_id\nINNER JOIN db_users u \n  ON o.vat_number = u.vat_number\nWHERE u.vat_number = {{appsmith.store.clientId}}\nGROUP BY p.product_id, p.name, p.price\nORDER BY variant_count DESC\nLIMIT 5;\n\n\n\n\n\n\n\n\n\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

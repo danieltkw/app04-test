@@ -1,5 +1,7 @@
--- getClientIdFromDB - Fetch VAT (vat_number) from the db_users table
+-- getClientIdFromDB - Fetch the VAT (vat_number) from db_users
 SELECT vat_number AS client_id 
 FROM db_users 
-WHERE user_id = {{appsmith.user.id}};
+WHERE vat_number = {{appsmith.user.id}};
+
+
 

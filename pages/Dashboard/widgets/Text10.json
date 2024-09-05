@@ -43,7 +43,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 45,
   "shouldTruncate": false,
-  "text": "Hello {{appsmith.store.clientId}}",
+  "text": "Olá {{appsmith.store.clientId}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
   "topRow": 9,

@@ -2,11 +2,13 @@ export default {
   defaultTab: 'Sign In',
   testMode: true,
 
+  // Initialize function to set the default tab
   initialize() {
     console.log('Initializing with default tab set to Sign In');
     this.setDefaultTab('Sign In');  // Set the default tab to SignIn when the app loads
   },
 
+  // Set the default tab to SignIn
   setDefaultTab(tabName) {
     if (tabName === 'Sign In') {
       this.defaultTab = tabName;
@@ -15,21 +17,27 @@ export default {
     }
   },
 
+  // Sign-in function to authenticate user
   async signIn() {
     const email = inp_email.text;
     const password = inp_password.text;
 
     try {
-      const result = await entry_form.run(); // Runs the Google Sheet query
+      const result = await entry_form.run(); // Run the query to authenticate the user
 
       if (result.length > 0) {
         const user = result.find(row => row['Email address'] === email);
 
         if (user) {
           if (user['Senha desejada'] === password) {
-            await storeValue('userID', user['NIF/VAT']);  // Store VAT as user ID
-            navigateTo('Dashboard', {}, 'SAME_WINDOW');  // Redirect to dashboard
-            showAlert('Login Success', 'success');
+            const userID = user['NIF/VAT']; // Extract user ID (VAT)
+            await storeValue('userID', userID);  // Store VAT as user ID
+            
+            // Show alert with welcome message and the VAT (userID)
+            showAlert(`Login Success! Welcome, ${userID}`, 'success');
+            
+            // Navigate to dashboard with user_id in the query params
+            navigateTo('Dashboard', { user_id: userID }, 'SAME_WINDOW');
           } else {
             showAlert('Invalid password', 'error');
           }
@@ -45,6 +53,7 @@ export default {
     }
   },
 
+  // Navigate to the external sign-up form
   navigateToSignUpForm() {
     navigateTo(
       'https://docs.google.com/forms/d/e/1FAIpQLSea9NOGjFYhjPSYULcSrd_JemTH9CtChcq_xK6OcU87VhOmJQ/viewform?usp=sf_link', 
@@ -53,12 +62,6 @@ export default {
     );
   }
 };
-
-
-
-
-	
-
 
 // ------------------------------------------------------------
 // Temporary Login page

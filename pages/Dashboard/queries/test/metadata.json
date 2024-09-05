@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "66d34dc0971b12617d2a7bb0_ec741b5e-957f-46aa-a55f-dc0498a02a09",
-  "id": "Dashboard_getOrdersForUserID",
+  "gitSyncId": "66d34dc0971b12617d2a7bb0_a0bd24c2-0d10-4dcc-9b0c-539d05c0abf0",
+  "id": "Dashboard_test",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- Fetch orders for the logged-in user based on user_id (stored in appsmith.store.userID)\nSELECT * \nFROM db_orders\nWHERE user_id = {{appsmith.store.userID}};\n",
+      "body": "SELECT * \nFROM db_orders \nWHERE vat_number = '307277003';\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,13 +22,9 @@
       "name": "appsmith_db",
       "pluginId": "mysql-plugin"
     },
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
+    "dynamicBindingPathList": [],
     "executeOnLoad": false,
-    "name": "getOrdersForUserID",
+    "name": "test",
     "pageId": "Dashboard",
     "userSetOnLoad": false
   }

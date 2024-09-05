@@ -3,11 +3,12 @@ SELECT
   DATE_FORMAT(o.created, '%Y-%m') AS month,
   SUM(o.total) AS total
 FROM db_orders o
-INNER JOIN db_users u ON o.user_id = u.user_id
+INNER JOIN db_users u ON o.vat_number = u.vat_number  -- Use vat_number instead of user_id
 WHERE u.vat_number = {{appsmith.store.clientId}}
 AND o.created >= DATE_SUB(DATE_FORMAT(CURDATE(), '%Y-%m-01'), INTERVAL 11 MONTH)
 GROUP BY month
 ORDER BY month;
+
 
 
 

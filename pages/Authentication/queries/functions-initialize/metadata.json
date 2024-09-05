@@ -22,10 +22,10 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "fullyQualifiedName": "functions.initialize",
     "name": "initialize",
     "pageId": "Authentication",
-    "userSetOnLoad": false
+    "userSetOnLoad": true
   }
 }

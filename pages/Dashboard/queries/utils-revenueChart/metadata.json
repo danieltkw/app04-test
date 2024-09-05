@@ -26,6 +26,6 @@
     "fullyQualifiedName": "utils.revenueChart",
     "name": "revenueChart",
     "pageId": "Dashboard",
-    "userSetOnLoad": false
+    "userSetOnLoad": true
   }
 }

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "-- getReturns - Fetch orders where delivery_status is 'Returning' or 'Returned'\nSELECT * \nFROM db_orders \nWHERE delivery_status IN ('Returning', 'Returned') \nAND user_id = {{appsmith.store.clientId}};\n\n",
+      "body": "-- getReturns - Fetch orders where delivery_status is 'Returning' or 'Returned'\nSELECT * \nFROM db_orders \nWHERE delivery_status IN ('Returning', 'Returned') \nAND vat_number = {{appsmith.store.clientId}};  -- Use vat_number instead of user_id\n\n\n\n\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
